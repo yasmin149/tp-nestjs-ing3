@@ -4,9 +4,10 @@ import { UpdateTravelDto } from './dto/update-travel.dto.js';
 
 @Injectable()
 export class TravelService {
-  create(createTravelDto: CreateTravelDto) {
-    return 'This action adds a new travel';
-  }
+    private trips = [
+    { id: 1, name: 'to china ', price: 9000 },
+    { id: 2, name: 'to morocco ', price: 4000 },
+  ];
 
   findAll() {
     return `This action returns all travel`;
