@@ -9,13 +9,17 @@ export class TravelService {
     { id: 2, name: 'to morocco ', price: 4000 },
   ];
 
-  findAll() {
-    return `This action returns all travel`;
-  }
+  
+ findAll() {
+  return this.trips;
+}
 
-  findOne(id: number) {
-    return `This action returns a #${id} travel`;
-  }
+
+  
+findOne(id: number) {
+  return this.trips.find(trip => trip.id === id);
+}
+
 
   update(id: number, updateTravelDto: UpdateTravelDto) {
     return `This action updates a #${id} travel`;

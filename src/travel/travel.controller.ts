@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { TravelService } from './travel.service.js';
 import { UpdateTravelDto } from './dto/update-travel.dto.js';
 import { ConfigModule } from '@nestjs/config';
@@ -19,10 +19,12 @@ export class TravelController {
 }
 
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.travelService.findOne(+id);
+  
+ @Get(":id")
+  findOne(@Param("id", ParseIntPipe) id: number) {
+    return this.travelService.findOne(id);
   }
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTravelDto: UpdateTravelDto) {
