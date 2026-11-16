@@ -12,10 +12,12 @@ export class TravelController {
     return 'planifier un nouneau voyage ici';
   }
 
+  
   @Get()
   findAll() {
-    return this.travelService.findAll();
-  }
+  return this.travelService.findAll();
+}
+
 
   @Get(':id')
   findOne(@Param('id') id: string) {
